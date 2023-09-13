@@ -1,6 +1,7 @@
 # Ayre
 
-*"I'll support you..."*
+> *"I'll support you..."*
+
 Ayre is a Visual Question Answering project created by members of [this organisation](https://github.com/projectayre) as part of our semester V projects and coursework during our Bachelor's degree. This is primarily a research based project, since Visual Question Answering with Sentiment Analysis is a significant research gap that we would like to address. This project will feature several components coming together as a complete full-stack AI project.
 
 ## Planned/Implemented features [checklist]
