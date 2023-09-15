@@ -45,4 +45,10 @@ The following changes have been made:
     - Added Q4.10 which was missing, the original annotators seem to have removed the 'others' column entirely.
     - Reformatted text
     - Added rawtext for the dictionary I am using below:
-    
+    {'Q1': 'sentiment polarity',
+    'Q2': 'stimulation and excitement',
+    'Q3.1': 'Joy', 'Q3.2': 'Sadness', 'Q3.3': 'Fear', 'Q3.4': 'Disgust', 'Q3.5': 'Anger', 'Q3.6': 'Surprise', 'Q3.7': 'Neutral',
+    'Q4.1': 'Anger', 'Q4.2': 'Anxiety', 'Q4.3': 'Craving', 'Q4.4': 'Emphatic pain', 'Q4.5': 'Fear', 
+    'Q4.6': 'Horror', 'Q4.7': 'Joy', 'Q4.8': 'Relief', 'Q4.9': 'Sadness', 'Q4.10': 'Surprise',
+    'Q5.1': 'Human facial expression gesture', 'Q5.2': 'Inherent image property', 'Q5.3': 'Image background',
+    'Q5.4': 'Objects in image', 'Q5.5': 'Text in image', 'Q5.6': 'Emoji sticker', 'Q5.7': 'Halo effect'}
