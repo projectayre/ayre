@@ -44,7 +44,7 @@ EDITS by Anand Chauhan, in accordance to research paper that seems to use the sa
 The following changes have been made:
     - Added Q4.10 which was missing, the original annotators seem to have removed the 'others' column entirely.
     - Reformatted text
-    - Added rawtext for the dictionary I am using below:
+    - Added raw text for the dictionary I am using below:
     {'Q1': 'sentiment polarity',
     'Q2': 'stimulation and excitement',
     'Q3.1': 'Joy', 'Q3.2': 'Sadness', 'Q3.3': 'Fear', 'Q3.4': 'Disgust', 'Q3.5': 'Anger', 'Q3.6': 'Surprise', 'Q3.7': 'Neutral',
