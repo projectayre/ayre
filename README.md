@@ -8,9 +8,11 @@ Ayre is a Visual Question Answering project created by members of [this organiza
 
 ### AI
 
-All AI development to be done using Torch [better support with transformers]
 
-- [ ] Sentiment Analysis on images using integrating fuzzy logic.
+All AI development to done using Torch, for better support with transformers.
+
+- [x] ~~Sentiment Analysis on images using integrating fuzzy logic.~~
+- [ ] NEW: Semantic Image Segmentation for Improved Understanding of the image.
 - [ ] Visual Question Answering task using data from sentiment analysis.
 - [ ] At least 1 Journal and 1 Conference paper based on novel approaches made here.
 - [ ] MLOps pipelines that can be easily imported and deployed inside the backend.
