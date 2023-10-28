@@ -28,12 +28,10 @@ export const Navbar = () => {
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
 						<Logo />
-						<p className="font-bold text-inherit">AYRE</p>
+						<p> Ayre </p>
 					</NextLink>
 				</NavbarBrand>
 			</NavbarContent>
-
-			{/* Done */}
 
 			<NavbarContent
 				className="hidden sm:flex basis-1/5 sm:basis-full"

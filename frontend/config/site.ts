@@ -5,7 +5,7 @@ export const siteConfig = {
 	description: "Semantic-and-Sentiment-Attentive Visual Question Answering",
 	navItems: [
 		{
-			label: "Home",
+			label: "",
 			href: "/",
 		},
 		{
