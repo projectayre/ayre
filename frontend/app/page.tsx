@@ -9,12 +9,14 @@ import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import { Divider, Textarea } from "@nextui-org/react";
 
+import { Model } from '../components/New_surface_study_2';
+
 
 export default function Home() {
 	return (
 		<section className="flex flex-row items-center justify-evenly h-4/5 gap-4 md:py-2 border-2">
 			<div className="flex flex-col items-center justify-center w-1/2 h-full border-2 max-w-full">
-
+				<Model />
 				<h1 className="text-3xl font-bold"> Insert 3D model here </h1>
 
 				<Divider />
