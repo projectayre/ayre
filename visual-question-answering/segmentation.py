@@ -1,7 +1,7 @@
 """Python file to store the structure of the segmentation UNet as a class"""
 from torch.nn import ConvTranspose2d, Conv2d, MaxPool2d, Module
 from torch.nn import Sequential, ReLU, BatchNorm2d, ModuleList
-from torchvision.transforms.functional import resize
+from torch.nn import functional as F
 import torch
 
 class DoubleConv(Module):
@@ -20,7 +20,9 @@ class DoubleConv(Module):
         return self.conv(x)
 
 class UNet(Module):
-    def __init__(self, in_channels=3, out_channels=1, features=[64, 128, 256]):
+    def __init__(
+            self, in_channels=3, out_channels=1, features=[64, 128, 256],
+    ):
         super(UNet, self).__init__()
         self.ups = ModuleList()
         self.downs = ModuleList()
@@ -33,11 +35,15 @@ class UNet(Module):
 
         # Up part of UNET
         for feature in reversed(features):
-            self.ups.append(ConvTranspose2d(feature*2, feature, kernel_size=2, stride=2,)            )
+            self.ups.append(
+                ConvTranspose2d(
+                    feature*2, feature, kernel_size=4, stride=2, padding=1, bias=False
+                )
+            )
             self.ups.append(DoubleConv(feature*2, feature))
 
         self.bottleneck = DoubleConv(features[-1], features[-1]*2)
-        self.final_conv = Conv2d(features[0], out_channels, kernel_size=1)
+        self.final_conv = Conv2d(features[0], out_channels, kernel_size=3, padding=1)
 
     def forward(self, x):
         skip_connections = []
@@ -55,7 +61,7 @@ class UNet(Module):
             skip_connection = skip_connections[idx//2]
 
             if x.shape != skip_connection.shape:
-                x = resize(x, size=skip_connection.shape[2:], antialias=True)
+                x = F.interpolate(x, size=skip_connection.shape[2:], mode='bilinear', align_corners=False)
 
             concat_skip = torch.cat((skip_connection, x), dim=1)
             x = self.ups[idx+1](concat_skip)
