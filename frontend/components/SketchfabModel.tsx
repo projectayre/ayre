@@ -17,7 +17,7 @@ function MeshComponent() {
 
 
     return (
-      <mesh ref={mesh}>
+      <mesh ref={mesh} scale={[2,2,2]}>
         <primitive object={gltf.scene} />
       </mesh>
     );
@@ -25,9 +25,9 @@ function MeshComponent() {
 
   export function SketchfabModel() {
     return (
-      <div className='flex justify-center items-center h-screen'>
-        <Canvas className='h-2xl w-2xl'>
-            <OrbitControls />
+      <div className='justify-center items-center h-80 w-max '>
+        <Canvas className='  '>
+            <OrbitControls enableZoom={false} />
             <ambientLight />
             <pointLight position={[10, 10, 10]} />
             <MeshComponent />
