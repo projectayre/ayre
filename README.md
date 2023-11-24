@@ -8,14 +8,14 @@ Ayre is a Visual Question Answering project created by members of [this organiza
 
 ### AI
 
-All AI development to done using Torch, for better support with transformers.
+All AI development to done using Torch, for better support with transformers. (20/11/2023: Proof of concept is complete)
 
 - [x] ~~Sentiment Analysis on images using integrating fuzzy logic.~~
-- [ ] NEW: Semantic Image Segmentation for Improved Understanding of the image.
-- [ ] Visual Question Answering task using data from sentiment analysis.
-- [ ] At least 1 Journal and 1 Conference paper based on novel approaches made here.
-- [ ] MLOps pipelines that can be easily imported and deployed inside the backend.
-- [ ] (Optional) Github Packages Integration
+- [x] NEW: Semantic Image Segmentation for Improved Understanding of the image.
+- [x] Visual Question Answering task using data from semantic segmentation
+- [x] MLOps pipelines that can be easily imported and deployed inside the backend.
+- [ ] (Future Work) At least 1 Journal and 1 Conference paper based on novel approaches made here.
+- [ ] (Optional) HuggingFace integration (Probably future work now).
 
 ### Frontend
 
@@ -29,8 +29,8 @@ A simple, beautiful UI/UX with the following features:
 
 ### Backend
 
-- [ ] Minimal and fast backend created in Django.
-- [ ] Database connectivity for live storage of queries and information.
+- [ ] Minimal and fast backend created in FastAPI.
 - [ ] Modular design for improved CI/CD.
 - [ ] Full cloud hosting/self-hosting of the backend.
+- [ ] (Future Work) Database connectivity for live storage of queries and information.
 - [ ] (Optional) Scalability Options.
