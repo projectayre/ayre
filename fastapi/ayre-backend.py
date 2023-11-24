@@ -119,39 +119,26 @@ async def predict_images(request: ImageInput):
     
     write_to_csv(image, mask, label, ttime, query, prediction) # monitoring only, disable if not needed
 
-    return {"prediction" : label} # the bare minimum json to make everything work
+    return {"prediction" : label} # the bare minimum json to make everything work #FIXME send mask image too
 
 @app.post("/form-predict/")
 async def form_predict(
-    files: Annotated[list[UploadFile], File(description="Multiple files as UploadFile")],
-    pincode: Annotated[str, Form()]
+    image: Annotated[UploadFile, File(description="The Image to be masked.")],
+    query: Annotated[str, Form()]
     ):
-    processed_images = []
     starttime = time.time() # stopwatch start
-    
-    for img in files:
-        # Read the JSON image data
-        json_image_data = await img.read()
-        # Decode the image from JSON data, and resize
-        image_tensor = decode_image(json_image_data, channels=3)  # Set the number of color channels (3 for RGB)
-        resized_image = image.resize(image_tensor, size=(256, 256))
-        # Append the processed image to the list
-        processed_images.append(resized_image)
+    # Read the JSON image data
+    json_image_data = await image.read()
+    # Decode the image from JSON data, and resize
+    image = decode_image(json_image_data, channels=3)  # Set the number of color channels (3 for RGB)
 
-    # Convert the list of processed images to a TensorFlow tensor
-    images_tensor = stack(processed_images)
-    # get prediction from the model
-    prediction = model.predict(images_tensor)
-    
+    mask, label, prediction = vqa_predict(image, query)
     endtime = time.time() # stopwatch stop
-    
     ttime = endtime - starttime
-    # replace this with a more elaborate argmax function
-    final_pred = postprocess(prediction)
-    write_to_csv(final_pred['label'], ttime, pincode, final_pred['confidence'])
-    y_pred = {"prediction" : final_pred, 'exectime' : ttime}
-    print(y_pred)
-    return y_pred
+
+    write_to_csv(image, mask, label, ttime, query, prediction) # monitoring only, disable if not needed
+    return {"prediction" : label} # the bare minimum json to make everything work #FIXME send mask image too
+
 
 if __name__ == '__main__':
     # CODE FOR SERVER
