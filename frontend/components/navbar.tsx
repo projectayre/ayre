@@ -26,8 +26,9 @@ export const Navbar = () => {
 		<NextUINavbar isBordered maxWidth="xl" position="sticky">
 			<NavbarContent className="basis-1/5 sm:basis-full" justify="start">
 				<NavbarBrand as="li" className="gap-3 max-w-fit">
-					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<Logo />
+					<NextLink className="flex justify-start items-center gap-1 text-xl" href="/">
+						<Logo style={{ width: '50px', height: '50px' }} />
+
 						<p> Ayre </p>
 					</NextLink>
 				</NavbarBrand>
