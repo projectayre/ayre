@@ -59,7 +59,7 @@ const options = {
 
 export const RadarChart = () => {
   return (
-    <div id="chart" className=" h-60 w-60 ">
+    <div id="chart" className=" grid h-60 w-full justify-center ">
       <Chart type="radar" data={data} options={options} />
     </div>
   );
