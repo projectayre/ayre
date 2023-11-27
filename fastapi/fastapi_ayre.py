@@ -12,7 +12,7 @@ import time
 import csv
 import io
 
-app = FastAPI()
+app = FastAPI(title='Ayre Backend')
 # pre-load the model so everything is just faster.
 # this includes the segmention model, the processor, and the vqa model itself.
 PATH_TO_MODEL = "./semantic-segmentation/models/model_20231116-134707-checkpoint_14_02.pth"
@@ -112,7 +112,6 @@ async def form_predict(
     json_image_data = await image.read()
     # Decode the image from JSON data
     image = Image.open(io.BytesIO(json_image_data)).convert('RGB')  # Read the image as RGB
-
     mask, label, prediction = vqa_predict(image, query)
     endtime = time.time() # stopwatch stop
     ttime = endtime - starttime
