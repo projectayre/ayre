@@ -33,7 +33,7 @@ function DragDrop() {
     formData.append("description", description);
 
     try {
-      const response = await fetch("http://0.0.0.0:7644/predict", {
+      const response = await fetch("https://singularly-inviting-cat.ngrok-free.app/predict/", {
         method: "POST",
         body: formData,
       });
