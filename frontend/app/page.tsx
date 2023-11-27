@@ -4,37 +4,33 @@ import { SketchfabModel } from "../components/SketchfabModel";
 import { AnswerCard } from "@/components/answer-card";
 import { RadarChart } from "@/components/chart";
 import DragDrop from "@/components/drap-drop";
+import { Button } from "@nextui-org/button";
+import React, { useState } from "react";
+import formSubmit from "@/components/formSubmit";
 
-// import { Model } from '../components/New_surface_study_2';
+const responseData = {
+  // image: "https://example.com/image.jpg",
+  // description: "This is the description of the answer.",
+};
 
 export default function Home() {
   return (
-    <section className="grid gap-4 justify-center">
-      <div className=" grid grid-row-3 grid-flow-col items-center gap-2 p-8">
-        <div>
-          <AnswerCard />
+    <section className="grid justify-items-center">
+      <div className=" grid grid-flow-col items-center gap-10 p-6  pr-40">
+        <div className="">
+          <AnswerCard responseData={responseData} />
         </div>
-        <div className=" items-center justify-center max-w-full">
+        <div className="grid justify-items-center max-w-full">
           <SketchfabModel />
         </div>
-        <div className=" grid justify-center gap-14">
-          {/* <AnswerCard /> */}
+        <div className=" grid justify-items-center gap-10 ">
           <RadarChart />
-          <DragDrop />
-
-          {/* <AnswerCard /> */}
-          {/* <Divider /> */}
         </div>
       </div>
-      <div>
-        <Divider />
-        <Textarea
-          className="p-1 font-size-md"
-          label="Description"
-          labelPlacement="outside"
-          placeholder="Enter your description"
-          size="full"
-        />
+      <Divider />
+
+      <div className="grid items-center">
+        <DragDrop />
       </div>
     </section>
   );
