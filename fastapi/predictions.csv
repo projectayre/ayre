@@ -2,3 +2,11 @@ how many cats in the image?,1,1.1919643878936768,"SequenceClassifierOutput(loss=
        device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
 how many cats in the image?,1,0.9639673233032227,"SequenceClassifierOutput(loss=None, logits=tensor([[-16.7432, -14.8853,  -8.5122,  ..., -16.7769, -16.3682, -18.1277]],
        device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+what is life?,dog,3.032161235809326,"SequenceClassifierOutput(loss=None, logits=tensor([[-11.4291, -11.0374,  -8.9209,  ..., -12.7583, -12.7122, -13.0103]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+amee,yes,0.22313427925109863,"SequenceClassifierOutput(loss=None, logits=tensor([[-10.7153,  -8.4263,  -6.9719,  ..., -12.3818, -11.9721, -13.6291]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+what is he eating?,donut,0.1117863655090332,"SequenceClassifierOutput(loss=None, logits=tensor([[-12.0650, -11.0858,  -5.8393,  ..., -16.1161, -13.7779, -17.8961]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+amee,yes,0.0959773063659668,"SequenceClassifierOutput(loss=None, logits=tensor([[-10.7153,  -8.4263,  -6.9719,  ..., -12.3818, -11.9721, -13.6291]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"

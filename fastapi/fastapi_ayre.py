@@ -26,14 +26,7 @@ trns = transforms.Compose([transforms.Resize((384, 512)), transforms.ToTensor()]
 # pre-loading this may not be best practice, but having models in memory at all times just
 # makes everything faster
 
-origins = [
-    "http://localhost.tiangolo.com",
-    "https://localhost.tiangolo.com",
-    "http://localhost",
-    "http://localhost:5500",
-    "http://127.0.0.1:5500",
-    "*.vercel.app"
-]
+origins = ["*"] # debug step
 
 app.add_middleware(
     CORSMiddleware,
