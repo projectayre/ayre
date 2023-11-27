@@ -1,0 +1,4 @@
+how many cats in the image?,1,1.1919643878936768,"SequenceClassifierOutput(loss=None, logits=tensor([[-16.7432, -14.8853,  -8.5122,  ..., -16.7769, -16.3682, -18.1277]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+how many cats in the image?,1,0.9639673233032227,"SequenceClassifierOutput(loss=None, logits=tensor([[-16.7432, -14.8853,  -8.5122,  ..., -16.7769, -16.3682, -18.1277]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
