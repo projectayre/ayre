@@ -12,7 +12,7 @@ function MeshComponent() {
     const gltf = useLoader(GLTFLoader, fileUrl);
 
     useFrame(() => {
-        mesh.current.rotation.y += 0.01;
+        mesh.current.rotation.y += 0.005;
     });
 
 
