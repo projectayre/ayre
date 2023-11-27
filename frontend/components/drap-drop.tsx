@@ -2,11 +2,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import { FileUploader } from "react-drag-drop-files";
 import { Button } from "@nextui-org/button";
-import { Textarea } from "@nextui-org/react";
+import { Spacer, Textarea } from "@nextui-org/react";
 
 const fileTypes = ["jpg", "jpeg", "png"];
 
@@ -50,25 +49,33 @@ function DragDrop() {
   };
 
   return (
-    <form className="grid justify-items-center gap-1">
+    <form className="flex w-full items-center">
       <Textarea
-        className="font-size-md "
+        className="font-size-md"
+        fullWidth
+        minRows={5}
         labelPlacement="outside"
-        placeholder="Enter your description"
+        placeholder="Ask Ayre a question..."
         value={description}
         onChange={handleDescriptionChange}
       />
-      <div className=" rounded-2xl bg-[#191717]   flex flex-col items-center justify-center w-fit ">
+
+      <Spacer x={4} />
+
+      <div className="rounded-2xl bg-[#191717] flex flex-col items-center justify-center w-fit">
         <FileUploader
           handleChange={handleChange}
           name="file"
           types={fileTypes}
         />
       </div>
+
+      <Spacer x={2} />
+
       <Button
         type="submit"
-        color="primary"
-        variant="light"
+        color="danger"
+        variant="shadow"
         className="w-fit"
         onClick={handleButtonClick}
       >

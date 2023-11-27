@@ -18,7 +18,7 @@ export const AnswerCard = ({ responseData }) => {
 
       <CardBody>
         <Image
-          src="test.jpg"
+          src="1280px-HD_transparent_picture.png"
           //src={image}
           alt="Image of the answer"
           width="500px"

@@ -1,5 +1,5 @@
 "use client";
-import { Divider, Textarea } from "@nextui-org/react";
+import { Divider, Spacer } from "@nextui-org/react";
 import { SketchfabModel } from "../components/SketchfabModel";
 import { AnswerCard } from "@/components/answer-card";
 import { RadarChart } from "@/components/chart";
@@ -27,8 +27,9 @@ export default function Home() {
       </div>
 
       <Divider />
+      <Spacer y={2} />
 
-      <div className="grid items-center">
+      <div className="grid items-center w-full h-fit">
         <DragDrop />
       </div>
     </section>
