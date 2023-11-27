@@ -1,0 +1,6 @@
+Pillow==10.1.0
+pydantic==1.8.2
+torch==2.1.1
+torchvision==0.16.1
+transformers==4.34.1
+uvicorn==0.24.0.post1
