@@ -41,7 +41,7 @@ function formSubmit() {
           type="submit"
           color="primary"
           variant="light"
-          className=" w-fit  "
+          className="w-fit"
         >
           Submit
         </Button>

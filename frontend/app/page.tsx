@@ -13,19 +13,15 @@ const responseData = {
   // description: "This is the description of the answer.",
 };
 
-
 export default function Home() {
   return (
     <section className="grid justify-items-center">
-      <div className=" grid grid-flow-col items-center gap-10 p-6  pr-40">
-        <div className="">
-          <AnswerCard responseData={responseData} />
-        </div>
+      <div className=" grid grid-flow-col items-center gap-10 p-6 pr-40">
         <div className="grid justify-items-center max-w-full">
           <SketchfabModel />
         </div>
-        <div className=" grid justify-items-center gap-10 ">
-          <RadarChart />
+        <div className="">
+          <AnswerCard responseData={responseData} />
         </div>
       </div>
       <Divider />
