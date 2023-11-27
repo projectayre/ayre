@@ -22,15 +22,15 @@ All AI development to done using Torch, for better support with transformers. (2
 A simple, beautiful UI/UX with the following features:
 
 - [ ] Responsive Design for accessibility.
-- [ ] Light/Dark themes.
+- [x] Light/Dark themes.
 - [ ] OAuth integration, with some of the benefits.
 - [ ] Deployment on Vercel/Github Pages.
 - [ ] (Optional) A Loading screen.
 
 ### Backend
 
-- [ ] Minimal and fast backend created in FastAPI.
-- [ ] Modular design for improved CI/CD.
-- [ ] Full cloud hosting/self-hosting of the backend.
+- [x] Minimal and fast backend created in FastAPI.
+- [x] Modular design for improved CI/CD.
+- [x] Basic self-hosting for anywhere access.
 - [ ] (Future Work) Database connectivity for live storage of queries and information.
-- [ ] (Optional) Scalability Options.
+- [ ] (Optional) Improved cloud-based hosting with accessible APIs.
