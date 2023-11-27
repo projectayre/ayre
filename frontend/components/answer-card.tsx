@@ -1,13 +1,25 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
+// Import necessary modules
+import React, { useEffect, useState } from 'react';
+import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from '@nextui-org/react';
 
 export const AnswerCard = ({ responseData }) => {
-  const { image, description } = responseData;
+  const [displayedData, setDisplayedData] = useState(responseData);
+
+  useEffect(() => {
+    console.log('AnswerCard received data:', responseData);
+    setDisplayedData(responseData);
+  }, [responseData]);
+
+  useEffect(() => {
+    console.log('Updating displayed data:', displayedData);
+  }, [displayedData]);
+
+  console.log('Image type:', typeof displayedData.image);
 
   return (
-    <Card className='w-full h-full bg-transparent' css={{ bgBlur: "#0f111466" }}>
+    <Card className="w-full h-full bg-transparent" css={{ bgBlur: '#0f111466' }}>
       <CardHeader className="flex gap-3">
         <div className="flex flex-col">
           <p className="text-md"> Ayre's response... </p>
@@ -17,23 +29,38 @@ export const AnswerCard = ({ responseData }) => {
       <Divider />
 
       <CardBody>
-        <Image
-          src="1280px-HD_transparent_picture.png"
-          //src={image}
-          alt="Image of the answer"
-          width="500px"
-          height="auto"
-          className="rounded-large justify-items-center"
-        />
+        {displayedData.image ? (
+          // Render the image directly if it's a URL
+          typeof displayedData.image === 'string' ? (
+            <Image
+              src={displayedData.image}
+              alt="Image of the answer"
+              width="500px"
+              height="auto"
+              className="rounded-large justify-items-center"
+            />
+          ) : displayedData.image instanceof Blob ? (
+            // Use Blob URL directly
+            <Image
+              src={URL.createObjectURL(displayedData.image)}
+              alt="Image of the answer"
+              width="500px"
+              height="auto"
+              className="rounded-large justify-items-center"
+            />
+          ) : (
+            <p>Invalid image format</p>
+          )
+        ) : (
+          <p>No image available</p>
+        )}
       </CardBody>
 
       <Divider />
 
       <CardFooter>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
-        {/* <p>{description}</p> */}
+        <p>{displayedData.prediction || 'Lorem ipsum dolor sit amet...'}</p>
       </CardFooter>
     </Card>
-
   );
 };

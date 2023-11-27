@@ -1,17 +1,17 @@
+'use client';
 
-"use client";
+// Import necessary modules
+import React, { useState } from 'react';
+import { FileUploader } from 'react-drag-drop-files';
+import { Button } from '@nextui-org/button';
+import { Spacer, Textarea } from '@nextui-org/react';
+import axios from 'axios'; // Add this import
 
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
-import { FileUploader } from "react-drag-drop-files";
-import { Button } from "@nextui-org/button";
-import { Spacer, Textarea } from "@nextui-org/react";
+const fileTypes = ['jpg', 'jpeg', 'png'];
 
-const fileTypes = ["jpg", "jpeg", "png"];
-
-function DragDrop() {
+function DragDrop({ onPrediction }) {
   const [file, setFile] = useState(null);
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState('');
 
   const handleChange = (file) => {
     setFile(file);
@@ -21,30 +21,34 @@ function DragDrop() {
     setDescription(event.target.value);
   };
 
-  const router = useRouter();
-  const handleButtonClick = async () => {
+  const handleButtonClick = async (event) => {
+    event.preventDefault();
+
     if (!file || !description) {
       return;
     }
 
     const formData = new FormData();
-    formData.append("image", file);
-    formData.append("query", description);
+    formData.append('image', file);
+    formData.append('query', description);
 
     try {
-      const response = await fetch("https://singularly-inviting-cat.ngrok-free.app/predict/", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await axios.post('https://singularly-inviting-cat.ngrok-free.app/predict/', formData);
 
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log("Prediction data:", responseData);
+      if (response.status === 200) {
+        const responseData = {
+          prediction: response.data.prediction,
+          time: response.data.time,
+          image: file, // Pass the File object directly
+        };
+
+        console.log('Prediction data:', responseData);
+        onPrediction(responseData);
       } else {
-        console.error("Error submitting prediction data:", response.status, response.statusText);
+        console.error('Error submitting prediction data:', response.status, response.statusText);
       }
     } catch (error) {
-      console.error("Error sending POST request:", error);
+      console.error('Error sending POST request:', error);
     }
   };
 
@@ -63,11 +67,7 @@ function DragDrop() {
       <Spacer x={4} />
 
       <div className="rounded-2xl bg-[#191717] flex flex-col items-center justify-center w-fit">
-        <FileUploader
-          handleChange={handleChange}
-          name="file"
-          types={fileTypes}
-        />
+        <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
       </div>
 
       <Spacer x={2} />
