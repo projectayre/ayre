@@ -29,8 +29,8 @@ function DragDrop() {
     }
 
     const formData = new FormData();
-    formData.append("file", file);
-    formData.append("description", description);
+    formData.append("image", file);
+    formData.append("query", description);
 
     try {
       const response = await fetch("https://singularly-inviting-cat.ngrok-free.app/predict/", {
@@ -69,7 +69,7 @@ function DragDrop() {
         type="submit"
         color="primary"
         variant="light"
-        className=" w-fit"
+        className="w-fit"
         onClick={handleButtonClick}
       >
         Submit

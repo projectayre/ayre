@@ -10,3 +10,9 @@ what is he eating?,donut,0.1117863655090332,"SequenceClassifierOutput(loss=None,
        device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
 amee,yes,0.0959773063659668,"SequenceClassifierOutput(loss=None, logits=tensor([[-10.7153,  -8.4263,  -6.9719,  ..., -12.3818, -11.9721, -13.6291]],
        device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+how many glasses is she holding?,1,1.4260897636413574,"SequenceClassifierOutput(loss=None, logits=tensor([[-16.1772, -14.2355,  -8.9522,  ..., -16.1725, -16.4987, -18.3408]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+asd,no,0.1939539909362793,"SequenceClassifierOutput(loss=None, logits=tensor([[-6.5257, -7.0168, -6.6335,  ..., -6.7639, -7.6178, -9.0281]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+what?,kite,0.3715989589691162,"SequenceClassifierOutput(loss=None, logits=tensor([[ -6.1175,  -7.6407,  -6.6029,  ...,  -9.9270, -10.1966, -11.7717]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
