@@ -13,6 +13,7 @@ const responseData = {
   // description: "This is the description of the answer.",
 };
 
+
 export default function Home() {
   return (
     <section className="grid justify-items-center">
@@ -28,7 +29,6 @@ export default function Home() {
         </div>
       </div>
       <Divider />
-
       <div className="grid items-center">
         <DragDrop />
       </div>
