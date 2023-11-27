@@ -32,7 +32,7 @@ export default function Home() {
           className="p-1 font-size-md"
           label="Description"
           labelPlacement="outside"
-          placeholder="Enter your description"
+          placeholder="Enter your question"
           size="full"
         />
       </div>
