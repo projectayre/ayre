@@ -1,46 +1,81 @@
-//DARG DROP IS NOT FUNCTIONAL
-//TO SUBMIT A RESPONSE, CLICK THE ARROW ICON
 
-'use client'
+"use client";
 
 import React, { useState } from "react";
-import { ArrowUpTrayIcon } from '@heroicons/react/24/outline';
-// import Link from 'next/navigation';
-import { useRouter } from 'next/navigation';
+import { ArrowUpTrayIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 import { FileUploader } from "react-drag-drop-files";
- 
+import { Button } from "@nextui-org/button";
+import { Textarea } from "@nextui-org/react";
 
-const fileTypes = ["MP3"];
-  
+const fileTypes = ["jpg", "jpeg", "png"];
+
 function DragDrop() {
   const [file, setFile] = useState(null);
-  
-  const handleChange = file => {
+  const [description, setDescription] = useState("");
+
+  const handleChange = (file) => {
     setFile(file);
   };
 
-  const router = useRouter();
-  const handleButtonClick = () => {
-    // do something with file
-    //console.log(file);
+  const handleDescriptionChange = (event) => {
+    setDescription(event.target.value);
+  };
 
-    router.push(`/responses/new`);
-  }
+  const router = useRouter();
+  const handleButtonClick = async () => {
+    if (!file || !description) {
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("description", description);
+
+    try {
+      const response = await fetch("http://0.0.0.0:7644/predict", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log("Prediction data:", responseData);
+      } else {
+        console.error("Error submitting prediction data:", response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error("Error sending POST request:", error);
+    }
+  };
 
   return (
-    <div className=" rounded-2xl bg-[#191717] p-3  flex flex-col items-center justify-center w-fit">
-   
-    <ArrowUpTrayIcon onClick={handleButtonClick} className="h-8 w-8 " />
-
-      <h3>Or Drag and Drop Below</h3>
-      <FileUploader 
-        handleChange={handleChange} 
-        name="file" 
-        types={fileTypes} 
+    <form className="grid justify-items-center gap-1">
+      <Textarea
+        className="font-size-md "
+        labelPlacement="outside"
+        placeholder="Enter your description"
+        value={description}
+        onChange={handleDescriptionChange}
       />
-    </div>
-      
+      <div className=" rounded-2xl bg-[#191717]   flex flex-col items-center justify-center w-fit ">
+        <FileUploader
+          handleChange={handleChange}
+          name="file"
+          types={fileTypes}
+        />
+      </div>
+      <Button
+        type="submit"
+        color="primary"
+        variant="light"
+        className=" w-fit"
+        onClick={handleButtonClick}
+      >
+        Submit
+      </Button>
+    </form>
   );
 }
-  
+
 export default DragDrop;

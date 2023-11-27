@@ -3,7 +3,9 @@
 import React from "react";
 import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image} from "@nextui-org/react";
 
-export const AnswerCard = () => {
+export const AnswerCard = ({responseData}) => {
+  const { image, description } = responseData;
+
 	return (
     <Card className="max-w-[400px]">
       <CardHeader className="flex gap-3">
@@ -19,6 +21,7 @@ export const AnswerCard = () => {
 
       <Image
           src="test.jpg"
+          //src={image}
           alt="Image of the answer"
           width="auto"
           height="auto"
@@ -26,6 +29,7 @@ export const AnswerCard = () => {
         />
 
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+        {/* <p>{description}</p> */}
       </CardBody>
     </Card>
 		
