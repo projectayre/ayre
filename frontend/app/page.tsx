@@ -20,11 +20,14 @@ export default function Home() {
         <div className="grid justify-items-center max-w-full">
           <SketchfabModel />
         </div>
+        
         <div className="">
           <AnswerCard responseData={responseData} />
         </div>
       </div>
+
       <Divider />
+
       <div className="grid items-center">
         <DragDrop />
       </div>

@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 
-export default function AboutLayout({
+export default function AlgorithmLayout({
 	children,
 }: {
 	children: React.ReactNode;
