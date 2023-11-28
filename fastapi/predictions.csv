@@ -28,3 +28,11 @@ how many cats in this image?,1,2.711454391479492,"SequenceClassifierOutput(loss=
        device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
 how many people are in this image?,2,7.460793733596802,"SequenceClassifierOutput(loss=None, logits=tensor([[-15.5046, -14.8697,  -9.6078,  ..., -15.6133, -15.7328, -17.8743]],
        device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+How many eyes?,2,1.0566167831420898,"SequenceClassifierOutput(loss=None, logits=tensor([[-15.5644, -13.4365,  -8.9964,  ..., -17.3894, -17.3984, -17.0622]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+How many eyes?,2,0.22426939010620117,"SequenceClassifierOutput(loss=None, logits=tensor([[-15.5644, -13.4365,  -8.9964,  ..., -17.3894, -17.3984, -17.0622]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+How many eyes?,2,0.21224474906921387,"SequenceClassifierOutput(loss=None, logits=tensor([[-15.5644, -13.4365,  -8.9964,  ..., -17.3894, -17.3984, -17.0622]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+How many nose,2,0.8977921009063721,"SequenceClassifierOutput(loss=None, logits=tensor([[-15.6709, -12.0563,  -9.7177,  ..., -16.6710, -15.8685, -18.2091]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"

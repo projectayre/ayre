@@ -10,7 +10,7 @@ class SentimentAnalyzer:
 
     def extract_colors(self, image, number_of_colors):
         pixels = image.reshape((image.shape[0] * image.shape[1], 3))
-        kmeans = KMeans(n_clusters=number_of_colors)
+        kmeans = KMeans(n_clusters=number_of_colors, n_init='auto')
         labels = kmeans.fit_predict(pixels)
         label_counts = Counter(labels)
         total_count = sum(label_counts.values())
@@ -58,7 +58,7 @@ class SentimentAnalyzer:
         return all_emotions
         
     def return_string_results(self, emotions):
-        result = "The image has presnece of "
+        result = "The image makes me feel "
         for emotion, intensity in emotions.items():
             if emotion != list(emotions.keys())[-1]:
                 result += f"{intensity} {emotion} and "
@@ -69,9 +69,9 @@ class SentimentAnalyzer:
         
     def analyze_image_sentiments(self, image):
         intensity_map = {
-            "Slight": (0.1, 0.33),
-            "Moderate": (0.33, 0.66),
-            "Significant": (0.66, 1.0)
+            "slight": (0.1, 0.33),
+            "moderate": (0.33, 0.66),
+            "significant": (0.66, 1.0)
         }
         
         try:
