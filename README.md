@@ -1,36 +1,31 @@
-# Ayre
+# Next.js & NextUI Template
 
-> *"... I'll support you!"*
+This is a template for creating applications using Next.js 13 (app directory) and NextUI (v2).
 
-Ayre is a Visual Question Answering project created by members of [this organization](https://github.com/projectayre) as part of our semester V projects and coursework during our Bachelor's degree. This is primarily a research based project, since Visual Question Answering with Sentiment Analysis is a significant research gap that we would like to address. This project will feature several components coming together as a complete full-stack AI project.
+## Technologies Used
 
-## Planned/Implemented features [checklist]
+- [Next.js 13](https://nextjs.org/docs/getting-started)
+- [NextUI v2](https://nextui.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Tailwind Variants](https://tailwind-variants.org)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [next-themes](https://github.com/pacocoursey/next-themes)
 
-### AI
+## How to Use
 
-All AI development to done using Torch, for better support with transformers.
+### Install dependencies
 
-- [x] ~~Sentiment Analysis on images using integrating fuzzy logic.~~
-- [ ] NEW: Semantic Image Segmentation for Improved Understanding of the image.
-- [ ] Visual Question Answering task using data from sentiment analysis.
-- [ ] At least 1 Journal and 1 Conference paper based on novel approaches made here.
-- [ ] MLOps pipelines that can be easily imported and deployed inside the backend.
-- [ ] (Optional) Github Packages Integration
+```bash
+npm install
+```
 
-### Frontend
+### Run the development server
 
-A simple, beautiful UI/UX with the following features:
+```bash
+npm run dev
+```
 
-- [ ] Responsive Design for accessibility.
-- [ ] Light/Dark themes.
-- [ ] OAuth integration, with some of the benefits.
-- [ ] Deployment on Vercel/Github Pages.
-- [ ] (Optional) A Loading screen.
+## License
 
-### Backend
-
-- [ ] Minimal and fast backend created in Django.
-- [ ] Database connectivity for live storage of queries and information.
-- [ ] Modular design for improved CI/CD.
-- [ ] Full cloud hosting/self-hosting of the backend.
-- [ ] (Optional) Scalability Options.
+Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).

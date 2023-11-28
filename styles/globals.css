@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html {
+  background-image: url('../public/background.png');
+  background-size: 200% 100%;
+  background-attachment: fixed;
+  background-position: top left, center right;
+}
+
+@font-face {
+  src: url('../public/fonts/Poppins-SemiBold.ttf');
+  font-family: 'Poppins';
+}
+
+@font-face {
+  src: url('../public/fonts/Anurati-Regular.otf');
+  font-family: 'Anurati';
+}
