@@ -1,4 +1,5 @@
 from transformers import ViltProcessor, ViltForQuestionAnswering
+from sentimentanalysis import SentimentAnalyzer
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 import torchvision.transforms as transforms
@@ -23,6 +24,7 @@ segmodel.eval().to(DEVICE)
 processor = ViltProcessor.from_pretrained("dandelin/vilt-b32-finetuned-vqa")
 vqamodel = ViltForQuestionAnswering.from_pretrained("dandelin/vilt-b32-finetuned-vqa").to(DEVICE)
 trns = transforms.Compose([transforms.Resize((384, 512)), transforms.ToTensor()])
+feeler = SentimentAnalyzer()
 # pre-loading this may not be best practice, but having models in memory at all times just
 # makes everything faster
 
@@ -104,13 +106,16 @@ async def form_predict(
     # Read the JSON image data
     json_image_data = await image.read()
     # Decode the image from JSON data
-    image = Image.open(io.BytesIO(json_image_data)).convert('RGB')  # Read the image as RGB
-    mask, label, prediction = vqa_predict(image, query)
+    image = Image.open(io.BytesIO(json_image_data)).convert('RGB') # Read the image as RGB
+    
+    sentistring = feeler.analyze_image_sentiments(image) # send the image to sentiment analyzer
+    mask, label, prediction = vqa_predict(image, query) # send the image to the masker + transformer
+    
     endtime = time.time() # stopwatch stop
-    ttime = endtime - starttime
+    ttime = endtime - starttime # stopwatch calculcate
 
     write_to_csv(image, mask, label, ttime, query, prediction) # monitoring only, disable if not needed
-    return {"prediction" : label, "time" : ttime} # the bare minimum json to make everything work #FIXME send mask image too
+    return {"prediction" : label + ".\n" + sentistring, "time" : ttime} # the bare minimum json to make everything work #FIXME send mask image too
 
 if __name__ == "__main__":
     import uvicorn

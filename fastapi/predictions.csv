@@ -16,3 +16,15 @@ asd,no,0.1939539909362793,"SequenceClassifierOutput(loss=None, logits=tensor([[-
        device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
 what?,kite,0.3715989589691162,"SequenceClassifierOutput(loss=None, logits=tensor([[ -6.1175,  -7.6407,  -6.6029,  ...,  -9.9270, -10.1966, -11.7717]],
        device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+What is in the image?,kite,0.09275555610656738,"SequenceClassifierOutput(loss=None, logits=tensor([[ -7.3216,  -8.5408,  -7.3191,  ..., -10.4673, -11.0929, -12.4258]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+Poplio,yes,0.08848953247070312,"SequenceClassifierOutput(loss=None, logits=tensor([[ -9.8654,  -9.4979,  -6.1022,  ...,  -8.9767,  -9.7859, -12.5441]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+Hi,no,0.08006620407104492,"SequenceClassifierOutput(loss=None, logits=tensor([[ -9.5308, -10.7704,  -7.3627,  ..., -11.0639, -11.9205, -11.2168]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+Hi,no,0.08454775810241699,"SequenceClassifierOutput(loss=None, logits=tensor([[ -9.5308, -10.7704,  -7.3627,  ..., -11.0639, -11.9206, -11.2168]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+how many cats in this image?,1,2.711454391479492,"SequenceClassifierOutput(loss=None, logits=tensor([[-16.9624, -15.0448,  -8.4299,  ..., -16.8098, -16.4074, -18.2240]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
+how many people are in this image?,2,7.460793733596802,"SequenceClassifierOutput(loss=None, logits=tensor([[-15.5046, -14.8697,  -9.6078,  ..., -15.6133, -15.7328, -17.8743]],
+       device='cuda:0', grad_fn=<AddmmBackward0>), hidden_states=None, attentions=None)"
