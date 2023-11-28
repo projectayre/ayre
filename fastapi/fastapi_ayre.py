@@ -1,13 +1,12 @@
 from transformers import ViltProcessor, ViltForQuestionAnswering
-from sentimentanalysis import SentimentAnalyzer
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
+from sentimentanalysis import SentimentAnalyzer
 import torchvision.transforms as transforms
-from PIL import Image
-from torch.nn import functional as F
 from pydantic import BaseModel
 from segmentation import UNet
 from typing import Annotated
+from PIL import Image
 import torch
 import time
 import csv
@@ -79,23 +78,6 @@ def vqa_predict(image, query: str):
     answer = vqamodel.config.id2label[idx]
     print("Predicted answer:", answer) # DEBUG
     return (segmask, answer, outputs)
-
-# make a little function here to postprocess the model's output
-# LABEL and FORMAT tensors correctly :)
-# FIXME deal with `outputs`
-# def postprocess(pred, labellist=labellist, weight=0.85):
-#     arg = argmax(pred, axis=1)[0]
-#     conf_arr = amax(pred, axis=1)
-#     try:
-#         confidence = conf_arr[0]*weight + conf_arr[1]*(1 - weight)
-#     except:
-#         confidence = conf_arr[0]
-#     label = labellist[arg]
-#     final_pred = {'label' : label, 'confidence' : (confidence * (1 // confidence))*100}
-
-#     # write_to_csv(final_pred, request.pincode) 
-#     return final_pred
-
 
 @app.post("/predict/") # uses form objects only.
 async def form_predict(
