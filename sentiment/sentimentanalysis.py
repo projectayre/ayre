@@ -63,13 +63,13 @@ class SentimentAnalyzer:
             if emotion != list(emotions.keys())[-1]:
                 result += f"{intensity} {emotion} and "
             else:
-                result += f"{intensity} {emotion}"
+                result += f"{intensity} {emotion}."
         return result
         
         
     def analyze_image_sentiments(self, image):
         intensity_map = {
-            "Slight": (0.0, 0.33),
+            "Slight": (0.1, 0.33),
             "Moderate": (0.33, 0.66),
             "Significant": (0.66, 1.0)
         }
